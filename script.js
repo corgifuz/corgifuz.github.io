@@ -40,8 +40,14 @@ WebMidi.outputs.forEach(function (output, num) {
     let originalPitch = midiNoteInput.note.number;
     let velocity = midiNoteInput.note.rawAttack;
 
-    let midiNoteOutput = new Note(pitch, originalPitch, { rawAttack: velocity });
-    return midiNoteOutput;
+    // let midiNoteOutput = new Note(pitch, originalPitch, { rawAttack: velocity });
+    // return midiNoteOutput; 
+
+    //FIX FROM DR WELLS:
+    let midiNote1 = new Note(originalPitch, { rawAttack: velocity })
+    let midiNote2 = new Note(pitch, { rawAttack: velocity })
+    let midiNote3 = new Note(originalPitch -7, { rawAttack: velocity })
+    return midiNote1, midiNote2, midiNote3;
   };
 
 // Add an event listener for the 'change' event on the input devices dropdown.
